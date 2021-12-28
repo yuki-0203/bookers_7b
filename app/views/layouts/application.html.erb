@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+      <main>
+        <div class="row">
+          <div class="col-md-12 col-xs-offset-3 text-center" style="margin-top: 25px;">
+          <% if user_signed_in? %>
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>
+            <%= f.select 'search[how]', options_for_select({ "完全一致" => "match","前方一致" => "forward", "後方一致" => "backward","部分一致" => "partical"  }) %>
+            <%= f.submit :"検索" %>
+          <% end %>
+        <% end %>
+        </div>
+        </div>
+        <p id="notice"><%= notice %></p>
+        <%= yield %>
+      </main>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
