@@ -26,6 +26,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @users = User.all
+    @book = Book.new
   end
 
   def update
@@ -35,7 +37,6 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-
 
   private
 

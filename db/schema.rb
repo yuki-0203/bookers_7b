@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_12_28_063848) do
+=======
+ActiveRecord::Schema.define(version: 2020_09_13_112406) do
+>>>>>>> HEAD@{8}
 
   create_table "book_comments", force: :cascade do |t|
     t.integer "user_id"
@@ -35,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_12_28_063848) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id"
     t.integer "follower_id"
@@ -42,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_12_28_063848) do
     t.datetime "updated_at", null: false
   end
 
+=======
+>>>>>>> HEAD@{8}
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

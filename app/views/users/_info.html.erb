@@ -7,7 +7,8 @@
   <tr>
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
-	  <tr>
+	 </tr>
+	<tr>
 	  <th>Follows</th>
 	  <th><%= link_to @user.followings.count,followings_user_path(@user)%></th>
 	</tr>
@@ -15,10 +16,11 @@
 	   <th>Followers</th>
 	   <th><%= link_to @user.followers.count,followers_user_path(@user)%></th>
   </tr>
-</table>
 
 
-<div class='row'>
+
+  <tr>
+	  <th>
   <% if @user == current_user %>
     <%= link_to '',edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user}" %>
   <% else %>
@@ -32,4 +34,7 @@
         <% end %>
     <% end %>
   <% end %>
-</div>
+    </th>
+  </tr>
+</table>
+
