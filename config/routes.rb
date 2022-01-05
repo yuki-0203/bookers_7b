@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
   root :to => "homes#top"
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, :index]
   get "home/about" => "homes#about"
   get 'search' => "searchs#search"
-
 
   resources :books, only: [:index, :show, :edit, :create, :destroy, :update] do
     resource :favorites, only: [:create, :destroy]

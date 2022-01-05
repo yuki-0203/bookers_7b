@@ -28,6 +28,16 @@
         <%=link_to user_relationship_path(@user), method: :delete do %>
           <button type="button" class="btn btn btn-danger">フォロー解除</button>
           <% end %>
+        <% if @isRoom == true %>
+    <p class="user-show-room"><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+      <% end %>
+          <%= f.submit "チャットを始める"%>
+        <% end %>
+      <% end %>
     <% else %>
         <%=link_to user_relationships_path(@user), method: :post do %>
           <button type="button" class="btn btn btn-primary">フォロー</button>
